@@ -1,8 +1,8 @@
 import sys
 from PyQt5.QtWidgets import QWidget,QLabel,QPushButton\
     ,QLineEdit,QTextEdit,QGridLayout,QApplication,QMainWindow\
-    ,QVBoxLayout,QComboBox
-from PyQt5.QtGui import QFont
+    ,QVBoxLayout,QComboBox,QHBoxLayout,QMenuBar
+from PyQt5.QtGui import QFont,QIcon
 from main.config import style
 
 class Winform(QMainWindow):
@@ -12,8 +12,9 @@ class Winform(QMainWindow):
 
 
     def initUI(self):
-        self.setWindowTitle("故障申告")
+        self.setWindowTitle("活动助手 V_1.0")
         main_widge = QWidget()
+        self.setWindowIcon(QIcon("v2-b5fa536054332eaa57b797d6fbe4c904_1440w.png"))
         self.setCentralWidget(main_widge)
         title = QLabel("标题")
         author = QLabel("提交人")
@@ -25,12 +26,16 @@ class Winform(QMainWindow):
         grid = QGridLayout()
         main_widge.setLayout(grid)
         self.setLayout(grid)
-        grid.addWidget(title,0,2,1,2)
+        grid.addWidget(title,1,2,1,2)
         grid.addWidget(author,1,3,1,2)
         grid.addWidget(review,1,4)
         left_widge = QWidget()
-        grid.addWidget(left_widge, 0, 1, 4, 1)
-        left_widge.setStyleSheet("background:#282a36")
+        set_Menu = QMenuBar()
+        set_Menu.addMenu("设置")
+
+        #top_lay.addWidget(t_L1, 1, 5)
+        grid.addWidget(left_widge, 1, 1, 4, 1)
+        left_widge.setStyleSheet("background:red")
         l_grid = QGridLayout()
         left_widge.setLayout(l_grid)
         left_widge_btn = QPushButton()
